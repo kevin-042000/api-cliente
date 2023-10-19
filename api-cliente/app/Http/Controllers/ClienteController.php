@@ -29,11 +29,22 @@ class ClienteController extends Controller
 
     public function update(Request $request, Cliente $cliente)
     {
-        
+        $cliente->nombres = $request->nombres;
+        $cliente->apellidos = $request->apellidos;
+        $cliente->update();
+
+        return $cliente;        
     }
 
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
-        
+        $cliente = Cliente::find($id);
+
+        if(is_null($cliente)){
+            return response()->json('No se pudo realizar correctamente la operacion', 404);
+        }
+
+        $cliente->delete();
+        return response()->noContent();
     }
 }
