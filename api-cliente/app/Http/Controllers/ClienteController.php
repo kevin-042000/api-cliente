@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
+use Carbon\Carbon;
 
 class ClienteController extends Controller
 {
@@ -20,7 +21,7 @@ class ClienteController extends Controller
         $cliente->surnames = $request->surnames;
         $cliente->phone_number = $request->phone_number;
         $cliente->email = $request->email;
-        $cliente->birthdate = $request->birthdate;
+        $cliente->birthdate = Carbon::createFromFormat('d/m/Y', $request->birthdate)->toDateString();
         $cliente->address = $request->address;
         $cliente->country = $request->country;
         $cliente->province = $request->province;
@@ -43,7 +44,7 @@ class ClienteController extends Controller
         $cliente->surnames = $request->surnames;
         $cliente->phone_number = $request->phone_number;
         $cliente->email = $request->email;
-        $cliente->birthdate = $request->birthdate;
+        $cliente->birthdate = Carbon::createFromFormat('d/m/Y', $request->birthdate)->toDateString();
         $cliente->address = $request->address;
         $cliente->country = $request->country;
         $cliente->province = $request->province;

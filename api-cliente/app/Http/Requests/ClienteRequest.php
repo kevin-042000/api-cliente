@@ -23,7 +23,7 @@ class ClienteRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:100',
-            'email' => 'required|email|unique:clients',
+            'email' => 'required|email|unique:clientes',
             'phone_number' => 'required|min:10|max:15',
             'surnames' => 'nullable|min:3|max:100',
             'birthdate' => 'nullable|date',
