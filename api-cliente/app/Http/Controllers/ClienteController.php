@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -12,11 +13,20 @@ class ClienteController extends Controller
         return Cliente::all();
     }
 
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         $cliente = new Cliente;
-        $cliente->nombres = $request->nombres;
-        $cliente->apellidos = $request->apellidos;
+        $cliente->name = $request->name;
+        $cliente->surnames = $request->surnames;
+        $cliente->phone_number = $request->phone_number;
+        $cliente->email = $request->email;
+        $cliente->birthdate = $request->birthdate;
+        $cliente->address = $request->address;
+        $cliente->country = $request->country;
+        $cliente->province = $request->province;
+        $cliente->city = $request->city;
+        $cliente->postal_code = $request->postal_code;
+
         $cliente->save();
 
         return $cliente;
@@ -27,10 +37,18 @@ class ClienteController extends Controller
         return $cliente;
     }
 
-    public function update(Request $request, Cliente $cliente)
+    public function update(ClienteRequest $request, Cliente $cliente)
     {
-        $cliente->nombres = $request->nombres;
-        $cliente->apellidos = $request->apellidos;
+        $cliente->name = $request->name;
+        $cliente->surnames = $request->surnames;
+        $cliente->phone_number = $request->phone_number;
+        $cliente->email = $request->email;
+        $cliente->birthdate = $request->birthdate;
+        $cliente->address = $request->address;
+        $cliente->country = $request->country;
+        $cliente->province = $request->province;
+        $cliente->city = $request->city;
+        $cliente->postal_code = $request->postal_code;
         $cliente->update();
 
         return $cliente;        
