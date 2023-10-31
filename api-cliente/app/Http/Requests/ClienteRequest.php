@@ -26,7 +26,7 @@ class ClienteRequest extends FormRequest
             'email' => 'required|email|unique:clientes',
             'phone_number' => 'required|min:10|max:15',
             'surnames' => 'nullable|min:3|max:100',
-            'birthdate' => 'nullable|date',
+            'birthdate' => 'nullable|date_format:d/m/Y',
             'address' => 'nullable|string',
             'country' => 'nullable|string',
             'province' => 'nullable|string',
